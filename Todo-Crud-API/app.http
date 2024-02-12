@@ -14,13 +14,13 @@ Content-Type: application/json
 
 ### update a todo
 
-PUT http://localhost:5000/todo/3
+PUT http://localhost:5000/todo/4
 Content-Type: application/json
 
 {
-    "todo":"review the responsiveness on the react project"
+    "todo":"review the responsiveness on the react project1"
 }
 
 
 ### delete one todo
-DELETE http://localhost:5000/todo/1
+DELETE http://localhost:5000/todo/5

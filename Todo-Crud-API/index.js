@@ -56,14 +56,12 @@ app.post('/todo/add',(req, res)=>{
 app.put('/todo/:id',(req,res)=>{
     const{id}=req.params
     const{todo}=req.body
-    const updatedTodo=todoDB.map((todoItem,index)=>{
+    let updated = false
+    todoDB.forEach((todoItem,index)=>{
         if(todoItem.id==id){
-        
-                todoItem.todo=todo   
+                   todoItem.todo=todo   
             
-            
-
-            return
+            updated =true
         }
         else{
             return ({"msg":"no updates done"})
@@ -72,11 +70,11 @@ app.put('/todo/:id',(req,res)=>{
         
     })
 
-    if(updatedTodo[0]?.msg){
-     res.status(400).json({"msg":updatedTodo[0].msg})
+    if(updated){
+     res.status(200).json(todoDB)
     }
     else{
-        res.status(200).json(todoDB)
+        res.status(400).json("todo not found")
     }
 })
 
@@ -87,10 +85,17 @@ app.delete ('/todo/:id',(req,res)=>{
     //chjeck if the di exists
 
     const todoBeDeleted=todoDB.find((todo)=>todo.id==id)
+
+
     
 
-    todoBeDeleted?
-    res.status(200).json({"message":"Deleted successful","data":todoBeDeleted}):res.status(400).json(todoDB)
+    if(todoBeDeleted){
+        todoDB.splice(todoBeDeleted,1)[0]
+        res.status(200).json({"message":"Deleted successful","data":todoDB})
+    } 
+     else    {
+        res.status(400).json(todoDB)
+     }
 })
 
 
