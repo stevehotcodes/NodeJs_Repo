@@ -1,0 +1,17 @@
+###
+GET http://localhost:8000/health
+### root directory
+GET http://localhost:8000/images(1).jpeg
+### root directory with imgs
+GET http://localhost:8000/public/images(1).jpeg
+### get with the next ()
+GET http://localhost:8000/go-next
+### get download method
+GET http://localhost:8000/download
+###
+POST http://localhost:8000/download
+Content-Type: application/json
+
+{
+    "img":"images.jpg"
+}
