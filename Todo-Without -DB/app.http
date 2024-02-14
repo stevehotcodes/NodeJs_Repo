@@ -1,0 +1,9 @@
+//healthcheck
+###
+GET http://localhost:8000/health
+### fetch all todos 
+GET http://localhost:8000/api/todos
+### create a todo
+POST http://localhost:8000/api/todos
+###  get todo by paginating 
+GET http://localhost:8000/api/todo?page=2&limit=2
