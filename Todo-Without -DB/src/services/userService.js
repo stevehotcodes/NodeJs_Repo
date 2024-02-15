@@ -14,5 +14,12 @@ export const addUserServices =async(newUser)=>{
 }
 
 export const findUserCredentialsService =async(username,password)=>{
+  try {
+        //if there is a user response
+        const userFoundResposne=await poolRequest()
+                             .input('')
 
+  } catch (error) {
+    
+  }
 }
